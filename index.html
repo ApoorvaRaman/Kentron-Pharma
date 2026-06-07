@@ -1,1330 +1,1055 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>KENTRON PHARMA — Delivering Trusted Pharmaceutical Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700&display=swap" rel="stylesheet">
-  <style>
-    /* ----------------------------------------------------
-       DESIGN SYSTEM & TOKENS (LIGHT MODE DEFAULT)
-    ---------------------------------------------------- */
-    :root {
-      --bg-primary: #FFFFFF;
-      --bg-accent: #F2F7FA;
-      --text-primary: #1A2B4C;
-      --text-secondary: #4A5B78;
-      --cta-color: #FF922B;
-      --cta-hover: #E87A15;
-      --border-color: #D3E0EA;
-      --card-shadow: 0 4px 20px rgba(26, 43, 76, 0.05);
-      --transition-speed: 0.3s;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kentron Pharma | Premium Pharmaceutical Formulations</title>
+    <link rel="icon" type="image/png" href="images/logo_text.png">
+    
+    <style>
+        /* --- DESIGN & THEME TOKENS (BIO-TECH INNOVATION THEME) --- */
+        :root {
+            /* Light Mode Tokens */
+            --bg-base: #FFFFFF;
+            --bg-accent: #F2F7FA;
+            --text-primary: #1A2B4C;
+            --text-muted: #4A5D78;
+            --accent-orange: #FF922B;
+            --accent-text-light: #FFFFFF;
+            --accent-text-dark: #121212;
+            --card-bg: #FFFFFF;
+            --border-color: #E2E8F0;
+            --shadow: 0 4px 20px rgba(26, 43, 76, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    /* ----------------------------------------------------
-       DARK MODE TOKENS OVERRIDE
-    ---------------------------------------------------- */
-    [data-theme="dark"] {
-      --bg-primary: #0D1625;
-      --bg-accent: #152238;
-      --text-primary: #F2F7FA;
-      --text-secondary: #A0B2C6;
-      --cta-color: #FF922B;
-      --cta-hover: #FA9E42;
-      --border-color: #263854;
-      --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
+        [data-theme="dark"] {
+            /* Dark Mode Tokens */
+            --bg-base: #0B132B;
+            --bg-accent: #111C3D;
+            --text-primary: #F2F7FA;
+            --text-muted: #A0AEC0;
+            --card-bg: #1A2B4C;
+            --border-color: #2D3748;
+            --shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+        }
 
-    /* Reset & Global Base Settings */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        /* --- BASE RESET & CORE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Rubik', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      transition: background-color var(--transition-speed), color var(--transition-speed);
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: var(--transition);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vi;
+        }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
 
-    ul {
-      list-style: none;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    img, svg {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
 
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    /* Utility Styles */
-    .section-padding {
-      padding: 80px 0;
-    }
-    .bg-accent-section {
-      background-color: var(--bg-accent);
-      transition: background-color var(--transition-speed);
-    }
-    .text-center { text-align: center; }
-    .btn-primary {
-      display: inline-block;
-      background-color: var(--cta-color);
-      color: #FFFFFF !important;
-      padding: 14px 28px;
-      font-weight: 500;
-      border-radius: 6px;
-      transition: background-color var(--transition-speed), transform 0.2s;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-primary:hover {
-      background-color: var(--cta-hover);
-      transform: translateY(-2px);
-    }
-    .badge {
-      display: inline-block;
-      background-color: var(--cta-color);
-      color: #FFFFFF;
-      padding: 6px 14px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-    }
+        /* --- BUTTONS & CONTROLS --- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent-orange);
+            color: var(--accent-text-light);
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
 
-    /* ----------------------------------------------------
-       STICKY NAVIGATION BAR
-    ---------------------------------------------------- */
-    .site-navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background-color: var(--bg-primary);
-      border-bottom: 1px solid var(--border-color);
-      transition: background-color var(--transition-speed), border-color var(--transition-speed);
-    }
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 90px;
-    }
-    .logo-area {
-      font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: 0.5px;
-      color: var(--text-primary);
-    }
-    .nav-controls {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    .site-menu {
-      display: flex;
-      gap: 24px;
-    }
-    .site-menu a {
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 8px 4px;
-      position: relative;
-      color: var(--text-secondary);
-      transition: color var(--transition-speed);
-      cursor: pointer;
-    }
-    .site-menu a:hover, .site-menu li.active a {
-      color: var(--text-primary);
-    }
-    .site-menu li.active a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background-color: var(--cta-color);
-      border-radius: 2px;
-    }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 146, 43, 0.3);
+        }
 
-    /* Theme Mode Toggle Switch Layout */
-    .theme-toggle-btn {
-      background: none;
-      border: 1px solid var(--border-color);
-      padding: 8px 14px;
-      border-radius: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      transition: background-color var(--transition-speed), border-color var(--transition-speed);
-    }
-    .theme-toggle-btn:hover {
-      background-color: var(--bg-accent);
-    }
-    .theme-toggle-btn .icon-sun { display: inline-block; }
-    .theme-toggle-btn .icon-moon { display: none; }
-    [data-theme="dark"] .theme-toggle-btn .icon-sun { display: none; }
-    [data-theme="dark"] .theme-toggle-btn .icon-moon { display: inline-block; }
+        [data-theme="dark"] .btn-primary {
+            /* CRITICAL CONTRAST FIX */
+            color: var(--accent-text-dark) !important;
+        }
 
-    /* Mobile Menu Toggle Button */
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--text-primary);
-      cursor: pointer;
-    }
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-primary);
+            margin-right: 16px;
+            transition: var(--transition);
+        }
 
-    /* ----------------------------------------------------
-       DYNAMIC VIEWPORT TAB CONTROLLER SYSTEM
-    ---------------------------------------------------- */
-    .app-page-view {
-      display: none;
-    }
-    .app-page-view.active-view {
-      display: block;
-      animation: fadeIn 0.4s ease-in-out forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .theme-toggle:hover {
+            background-color: var(--bg-accent);
+        }
 
-    /* ----------------------------------------------------
-       REUSABLE LAYOUT BLOCKS & SECTIONS
-    ---------------------------------------------------- */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .hero-block {
-      padding: 80px 0;
-      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-accent) 100%);
-    }
-    .hero-block h1 {
-      font-size: 2.6rem;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      color: var(--text-primary);
-    }
-    .hero-block p {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-      max-width: 580px;
-    }
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      color: var(--text-primary);
-    }
-    .section-subtitle {
-      color: var(--text-secondary);
-      max-width: 700px;
-      margin: 0 auto 48px auto;
-      font-size: 1.05rem;
-    }
+        /* --- GLOBAL HEADER & NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-base);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition);
+        }
 
-    /* Secondary Image strip styled layout */
-    .product-strip-wrapper {
-      margin-top: 48px;
-      border-top: 1px solid var(--border-color);
-      padding-top: 32px;
-    }
-    .product-strip-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-secondary);
-      margin-bottom: 20px;
-    }
-    .strip-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .strip-item {
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: var(--card-shadow);
-    }
-    .strip-item p {
-      font-size: 0.8rem;
-      font-weight: 500;
-      margin-top: 8px;
-      color: var(--text-primary);
-    }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
 
-    /* Content Layout structures */
-    .overview-text p {
-      margin-bottom: 16px;
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-    }
-    .stats-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-top: 32px;
-    }
-    .stat-card {
-      background-color: var(--bg-accent);
-      padding: 24px;
-      border-radius: 8px;
-      border-left: 4px solid var(--cta-color);
-    }
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 4px;
-    }
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
 
-    /* Feature Grid components */
-    .features-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-    .feature-box {
-      background-color: var(--bg-primary);
-      padding: 32px;
-      border-radius: 8px;
-      box-shadow: var(--card-shadow);
-      border: 1px solid var(--border-color);
-      transition: transform var(--transition-speed);
-    }
-    .feature-box:hover {
-      transform: translateY(-4px);
-    }
-    .feature-icon-bullet {
-      width: 12px;
-      height: 12px;
-      background-color: var(--cta-color);
-      border-radius: 50%;
-      margin-bottom: 16px;
-    }
-    .feature-box h3 {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-      color: var(--text-primary);
-    }
-    .feature-box p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
 
-    /* Milestone Timeline Block Layout */
-    .timeline-vertical {
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .timeline-node {
-      background-color: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 24px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 24px;
-      align-items: center;
-      box-shadow: var(--card-shadow);
-    }
-    .node-badge {
-      background-color: var(--text-primary);
-      color: var(--bg-primary);
-      padding: 8px 16px;
-      font-weight: 700;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      min-width: 90px;
-      text-align: center;
-    }
-    .node-content h4 {
-      font-size: 1.15rem;
-      margin-bottom: 6px;
-    }
-    .node-content p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
+        .logo-text {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
 
-    /* ----------------------------------------------------
-       PRODUCTS DATA MATRIX (PAGE 3 STRUCTURES)
-    ---------------------------------------------------- */
-    .matrix-wrapper {
-      width: 100%;
-      overflow-x: auto;
-      margin-top: 32px;
-      background-color: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: var(--card-shadow);
-    }
-    .portfolio-table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      min-width: 700px;
-    }
-    .portfolio-table th {
-      background-color: var(--bg-accent);
-      color: var(--text-primary);
-      font-weight: 700;
-      padding: 16px 24px;
-      font-size: 0.95rem;
-      border-bottom: 2px solid var(--border-color);
-    }
-    .portfolio-table td {
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      vertical-align: middle;
-    }
-    .portfolio-table tr:last-child td {
-      border-bottom: none;
-    }
-    .brand-highlight {
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .salt-composition {
-      font-family: monospace;
-      font-size: 0.9rem;
-      background-color: var(--bg-accent);
-      padding: 4px 8px;
-      border-radius: 4px;
-    }
+        .nav-controls {
+            display: flex;
+            align-items: center;
+        }
 
-    /* ----------------------------------------------------
-       CAREERS OPENINGS LAYOUT (PAGE 4)
-    ---------------------------------------------------- */
-    .career-card {
-      background-color: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 40px;
-      box-shadow: var(--card-shadow);
-      margin-bottom: 40px;
-    }
-    .career-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 24px;
-      margin-bottom: 24px;
-    }
-    .meta-item label {
-      display: block;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-secondary);
-      margin-bottom: 4px;
-    }
-    .meta-item span {
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .career-details h4 {
-      font-size: 1.2rem;
-      margin-bottom: 16px;
-    }
-    .career-details ul {
-      margin-left: 20px;
-      margin-bottom: 24px;
-    }
-    .career-details li {
-      list-style-type: disc;
-      margin-bottom: 8px;
-      color: var(--text-secondary);
-    }
-    .notice-box {
-      border: 1px dashed var(--border-color);
-      border-left: 4px solid var(--cta-color);
-      background-color: var(--bg-accent);
-      padding: 24px;
-      border-radius: 6px;
-      margin-top: 32px;
-    }
-    .notice-box h4 { margin-bottom: 8px; color: var(--text-primary); }
+        /* Hamburger Menu Icon styling */
+        .hamburger {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 1100;
+        }
 
-    .step-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 32px;
-    }
-    .step-card {
-      background-color: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      padding: 24px;
-      border-radius: 8px;
-      position: relative;
-    }
-    .step-num {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--border-color);
-    }
-    .step-card p {
-      margin-top: 8px;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
 
-    /* ----------------------------------------------------
-       CONTACT US INQUIRY PORTAL (PAGE 5 STRUCTURE)
-    ---------------------------------------------------- */
-    .contact-split {
-      display: grid;
-      grid-template-columns: 5fr 7fr;
-      gap: 64px;
-      align-items: start;
-    }
-    .info-block-item {
-      margin-bottom: 32px;
-    }
-    .info-block-item h4 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-    .info-block-item p {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-    .credentials-card {
-      background-color: var(--bg-accent);
-      padding: 24px;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      margin-top: 32px;
-    }
-    .credentials-card h4 {
-      font-size: 1rem;
-      margin-bottom: 16px;
-    }
-    .cred-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .cred-row:last-child { border-bottom: none; }
-    .cred-row label { font-size: 0.9rem; color: var(--text-secondary); }
-    .cred-row span { font-family: monospace; font-weight: 700; color: var(--text-primary); }
+        /* Hamburger Animation transform to close state */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
 
-    .enquiry-list {
-      margin-top: 24px;
-    }
-    .enquiry-list li {
-      padding: 6px 0;
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .enquiry-list li::before {
-      content: "•";
-      color: var(--cta-color);
-      font-weight: bold;
-    }
+        /* Overlay Navigation Panel */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-base);
+            z-index: 1050;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        }
 
-    /* Form UI Styling */
-    .inquiry-form-wrapper {
-      background-color: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: var(--card-shadow);
-    }
-    .inquiry-form-wrapper h3 {
-      font-size: 1.4rem;
-      margin-bottom: 24px;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-bottom: 6px;
-      color: var(--text-primary);
-    }
-    .form-control {
-      width: 100%;
-      padding: 12px 16px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      transition: border-color var(--transition-speed);
-    }
-    .form-control:focus {
-      outline: none;
-      border-color: var(--cta-color);
-    }
-    textarea.form-control {
-      resize: vertical;
-      min-height: 120px;
-    }
-    .form-microcopy {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-top: 12px;
-    }
+        .nav-overlay.active {
+            right: 0;
+        }
 
-    /* ----------------------------------------------------
-       GLOBAL PERSISTENT CORPORATE FOOTER
-    ---------------------------------------------------- */
-    .site-footer {
-      background-color: var(--bg-accent);
-      border-top: 1px solid var(--border-color);
-      padding: 60px 0 40px 0;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      transition: background-color var(--transition-speed), border-color var(--transition-speed);
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 40px;
-    }
-    .footer-brand h3 {
-      font-size: 1.3rem;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-    .footer-heading {
-      font-size: 1rem;
-      color: var(--text-primary);
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .footer-links li {
-      margin-bottom: 8px;
-    }
-    .footer-links a:hover {
-      color: var(--cta-color);
-    }
-    .footer-bottom {
-      border-top: 1px solid var(--border-color);
-      padding-top: 24px;
-      text-align: center;
-      font-size: 0.85rem;
-    }
+        .nav-menu {
+            list-style: none;
+            text-align: center;
+        }
 
-    /* ----------------------------------------------------
-       RESPONSIVE BREAKPOINTS (CSS GRID FALLBACKS)
-    ---------------------------------------------------- */
-    @media (max-width: 992px) {
-      .grid-2 {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .contact-split {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-      .features-grid-3, .step-grid-3 {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .strip-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .mobile-menu-toggle {
-        display: block;
-      }
-      .site-menu {
-        display: none;
-        position: absolute;
-        top: 90px;
-        left: 0;
-        width: 100%;
-        background-color: var(--bg-primary);
-        border-bottom: 1px solid var(--border-color);
-        flex-direction: column;
-        padding: 24px;
-        gap: 16px;
-        box-shadow: var(--card-shadow);
-      }
-      .site-menu.mobile-open {
-        display: flex;
-      }
-      .site-menu li.active a::after {
-        display: none;
-      }
-      .career-meta-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-    }
-  </style>
+        .nav-item {
+            margin: 24px 0;
+        }
+
+        .nav-link {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active-tab {
+            color: var(--accent-orange);
+        }
+
+        /* --- ROUTER PAGES FRAMEWORK --- */
+        main {
+            margin-top: 80px;
+            flex: 1;
+        }
+
+        .page-view {
+            display: none;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            padding: 60px 0;
+        }
+
+        .page-view.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- CORE PAGE SPECIFIC STYLES --- */
+
+        /* Hero Setup (Home / About Section) */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .responsive-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            object-fit: cover;
+            aspect-ratio: 16/10;
+        }
+
+        /* Corporate Highlights Grid */
+        .highlights-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background-color: var(--bg-accent);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--accent-orange);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        /* Section Title Element */
+        .section-title {
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-orange);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Vision & Values Framework */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .value-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 32px 24px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon-box {
+            background-color: var(--bg-accent);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: var(--accent-orange);
+        }
+
+        .value-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Products Card Layout Matrix Replacement */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img-wrapper {
+            background-color: #FFFFFF;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+            aspect-ratio: 1;
+        }
+
+        .product-img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .product-generic {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Careers Structuring */
+        .careers-wrapper {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .careers-banner {
+            background-color: var(--bg-accent);
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .badge-hiring {
+            display: inline-block;
+            background-color: var(--accent-orange);
+            color: var(--accent-text-light);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        [data-theme="dark"] .badge-hiring {
+            color: var(--accent-text-dark);
+        }
+
+        .careers-body {
+            padding: 40px;
+        }
+
+        .role-notice-box {
+            background-color: var(--bg-accent);
+            border-left: 4px solid var(--text-muted);
+            padding: 16px 20px;
+            margin-bottom: 30px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .instruction-sequence {
+            background-color: var(--bg-accent);
+            border: 1px dashed var(--accent-orange);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .email-anchor {
+            display: inline-block;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            margin-top: 8px;
+        }
+
+        /* Split-View Contact Layout */
+        .contact-split-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .form-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            border-radius: 6px;
+            outline: none;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-orange);
+        }
+
+        .institutional-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .institutional-body {
+            padding: 30px;
+        }
+
+        .data-point {
+            margin-bottom: 20px;
+        }
+
+        .data-point:last-child {
+            margin-bottom: 0;
+        }
+
+        .data-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .data-value {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* --- GLOBAL FOOTER COMPONENT --- */
+        footer {
+            background-color: var(--bg-accent);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0 20px;
+            margin-top: auto;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 35px;
+        }
+
+        .footer-heading {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .footer-links-list {
+            list-style: none;
+        }
+
+        .footer-links-list li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links-list a {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .footer-links-list a:hover {
+            color: var(--accent-orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* --- MODERN RESPONSIVE FRAMEWORK (MEDIA QUERIES) --- */
+        @media (max-width: 992px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid-item:nth-child(1) {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Structural stack down to mobile responsive viewport layouts */
+            .hero-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            .highlights-strip {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-split-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid-item:nth-child(1) {
+                grid-column: span 1;
+            }
+            .hero-text h1 {
+                font-size: 2.25rem;
+            }
+            .form-card, .careers-body {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
-<body>
+<body data-theme="light">
 
-  <!-- STICKY SITE HEADER & MENU -->
-  <header class="site-navbar">
-    <div class="container nav-container">
-      <div class="logo-area">
-        <a onclick="switchAppView('about')" style="cursor:pointer;">KENTRON PHARMA</a>
-      </div>
-      
-      <div class="nav-controls">
-        <nav role="navigation">
-          <ul class="site-menu" id="navigationMenu">
-            <li class="nav-item active" id="tab-about"><a onclick="switchAppView('about')">About Us</a></li>
-            <li class="nav-item" id="tab-vision"><a onclick="switchAppView('vision')">Vision &amp; Values</a></li>
-            <li class="nav-item" id="tab-products"><a onclick="switchAppView('products')">Products Portfolio</a></li>
-            <li class="nav-item" id="tab-careers"><a onclick="switchAppView('careers')">Careers</a></li>
-            <li class="nav-item" id="tab-contact"><a onclick="switchAppView('contact')">Contact Us</a></li>
-          </ul>
-        </nav>
-
-        <!-- Dynamic inline mode switcher -->
-        <button class="theme-toggle-btn" onclick="toggleThemeEngine()" aria-label="Toggle Interface Mode">
-          <span class="icon-sun">☀️ Light Mode</span>
-          <span class="icon-moon">🌙 Dark Mode</span>
-        </button>
-
-        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">☰</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ====================================================
-       PAGE 1 — ABOUT US VIEW
-  ==================================================== -->
-  <main class="app-page-view active-view" id="view-about">
-    <section class="hero-block">
-      <div class="container grid-2">
-        <div>
-          <span class="badge">Established 2025</span>
-          <h1>Delivering Trusted Pharmaceutical Solutions Across Therapeutic Specialties</h1>
-          <p>Kentron Laboratories Pvt. Ltd. is a pharmaceutical company established in 2025 with a clear focus on expanding access to quality healthcare products through a growing portfolio of branded formulations across multiple therapeutic segments.</p>
-          <button class="btn-primary" onclick="switchAppView('products')">Explore Our Product Portfolio</button>
-        </div>
-        <div>
-          <!-- High-quality asset placeholder rendering a clinical environment -->
-          <svg viewBox="0 0 500 350" width="100%" height="auto" style="border-radius:8px; box-shadow: var(--card-shadow); background:#E2EAF4;">
-            <rect width="100%" height="100%" fill="matrix" fill-opacity="0.15"/>
-            <path d="M0,280 L150,220 L300,260 L500,180 L500,350 L0,350 Z" fill="#1A2B4C" opacity="0.1"/>
-            <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="'Rubik',sans-serif" font-size="16" fill="#1A2B4C" font-weight="700">[Corporate Facility Building Photography Layout]</text>
-            <rect x="40" y="200" width="120" height="100" fill="#1A2B4C" opacity="0.15" rx="4"/>
-            <rect x="180" y="160" width="140" height="140" fill="#1A2B4C" opacity="0.2" rx="4"/>
-            <rect x="340" y="180" width="120" height="120" fill="#1A2B4C" opacity="0.15" rx="4"/>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Secondary product photographic representation strip -->
-      <div class="container product-strip-wrapper">
-        <h3 class="product-strip-title">Portfolio Range Highlights</h3>
-        <div class="strip-grid">
-          <div class="strip-item">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cta-color)" stroke-width="2"><path d="M4.5 16.5c-1.5-1.5-2.5-3.5-2.5-6s2-6 4.5-6 4.5 2 4.5 6-1 4.5-2.5 6m-4 0l4-4m5 4l4-4m-1.5 4c1.5-1.5 2.5-3.5 2.5-6s-2-6-4.5-6-4.5 2-4.5 6 1 4.5 2.5 6"/></svg>
-            <p>Tablet Lines</p>
-          </div>
-          <div class="strip-item">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cta-color)" stroke-width="2"><path d="M18 22H6a2 2 0 0 1-2-2V8h16v12a2 2 0 0 1-2 2zM12 2v6m-4-3h8"/></svg>
-            <p>Injectable Packs</p>
-          </div>
-          <div class="strip-item">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cta-color)" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6m-6 4h6m-6 4h4"/></svg>
-            <p>Nutraceuticals</p>
-          </div>
-          <div class="strip-item">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--cta-color)" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 6v12m-6-6h12"/></svg>
-            <p>Specialty Formulations</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding">
-      <div class="container grid-2">
-        <div class="overview-text">
-          <h2 class="section-title">Built for a Growing Healthcare Market</h2>
-          <p>Founded in 2025, Kentron Laboratories Pvt. Ltd. entered the pharmaceutical sector with a focused objective: to establish a dependable distribution and brand network capable of serving healthcare professionals across diverse therapeutic specialties.</p>
-          <p>Within a short operational period, Kentron Pharma has successfully introduced approximately 80 brands into the market, creating a broad presence across multiple treatment categories and supporting healthcare providers with a growing range of pharmaceutical solutions.</p>
-          <p>Our expansion strategy is guided by disciplined market development, consistent product availability, and long-term relationships with distributors, pharmacies, clinicians, and healthcare institutions.</p>
-        </div>
-        <div>
-          <div class="stats-container">
-            <div class="stat-card">
-              <div class="stat-number">2025</div>
-              <div class="stat-label">Inception &amp; Infrastructure Launch</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">80+</div>
-              <div class="stat-label">Branded Formulations Formed</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Regulatory Compliance Audit</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">14 Districts</div>
-              <div class="stat-label">Kerala Distribution Map Strategy</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding bg-accent-section">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="section-title">Quality Built Into Every Stage</h2>
-          <p class="section-subtitle">At Kentron Pharma, quality is approached as a process rather than a statement. Our operational framework is aligned with certified pharmaceutical compliance standards.</p>
-        </div>
-        <div class="features-grid-3">
-          <div class="feature-box">
-            <div class="feature-icon-bullet"></div>
-            <h3>Regulatory Compliance</h3>
-            <p>Every single batch introduced into the market conforms strictly to established national regulatory frameworks and statutory production guidelines.</p>
-          </div>
-          <div class="feature-box">
-            <div class="feature-icon-bullet"></div>
-            <h3>Consistent Formulation Quality</h3>
-            <p>By coordinating with validated manufacturing lines, we guarantee chemical accuracy, molecular efficacy, and product durability.</p>
-          </div>
-          <div class="feature-box">
-            <div class="feature-icon-bullet"></div>
-            <h3>Contemporary Molecules</h3>
-            <p>Our forward-looking development pipeline isolates, reviews, and introduces contemporary molecules to meet expanding clinical updates.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding text-center">
-      <div class="container">
-        <h2 class="section-title">Growing With Purpose</h2>
-        <p class="section-subtitle" style="margin-bottom: 0;">Kentron Laboratories Pvt. Ltd. continues to strengthen its pharmaceutical footprint through responsible expansion, disciplined distribution practices, and a commitment to making quality healthcare products accessible across the regions it serves.</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- ====================================================
-       PAGE 2 — VISION & VALUES VIEW
-  ==================================================== -->
-  <main class="app-page-view" id="view-vision">
-    <section class="hero-block text-center">
-      <div class="container">
-        <h1>Building Pharmaceutical Reach Where It Matters Most</h1>
-        <p style="margin: 0 auto 32px auto;">Kentron Pharma's growth strategy is centered on expanding access, strengthening distribution networks, and establishing meaningful healthcare coverage in regions that remain underserved.</p>
-      </div>
-    </section>
-
-    <section class="section-padding">
-      <div class="container grid-2">
-        <div>
-          <h2 class="section-title">Expanding Market Penetration Through Structured Growth</h2>
-          <p class="text-secondary" style="font-size:1.05rem; margin-bottom:20px;">Our vision is built around creating a comprehensive pharmaceutical presence across Kerala through systematic territory development and strong field execution.</p>
-          <p class="text-secondary" style="font-size:1.05rem;">Rather than concentrating exclusively on established urban epicenters, Kentron Pharma prioritizes identifying districts where healthcare product availability and brand representation remain limited. Through this approach, we build a balanced distribution ecosystem.</p>
-        </div>
-        <div class="bg-accent-section" style="padding: 40px; border-radius: 8px;">
-          <h3 style="margin-bottom: 20px;">Our Operational Benchmarks</h3>
-          <ul style="display:flex; flex-direction:column; gap:16px;">
-            <li style="display:flex; gap:12px; align-items:start;"><strong>✓</strong> <span class="text-secondary">Data-driven location routing maps</span></li>
-            <li style="display:flex; gap:12px; align-items:start;"><strong>✓</strong> <span class="text-secondary">Direct logistical pathways ensuring product security</span></li>
-            <li style="display:flex; gap:12px; align-items:start;"><strong>✓</strong> <span class="text-secondary">Consistent stock balancing with distribution nodes</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding bg-accent-section">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="section-title">Development Milestones</h2>
-          <p class="section-subtitle">Our structural rollout roadmap is designed across three distinct operational phases.</p>
-        </div>
-        
-        <div class="timeline-vertical">
-          <div class="timeline-node">
-            <div class="node-badge">Phase 1</div>
-            <div class="node-content">
-              <h4>Strengthen Kerala Coverage</h4>
-              <p>Identify unrepresented healthcare territories, cultivate initial regional distributor partnerships, improve localized product accessibility, and optimize clinical field professional engagement tracks.</p>
-            </div>
-          </div>
-          <div class="timeline-node">
-            <div class="node-badge">Phase 2</div>
-            <div class="node-content">
-              <h4>Comprehensive Regional Penetration</h4>
-              <p>Establish persistent presence across previously underserved sub-sectors, strengthen on-field operations, and build integrated communication channels between pharmacies and practicing clinicians.</p>
-            </div>
-          </div>
-          <div class="timeline-node">
-            <div class="node-badge">Phase 3</div>
-            <div class="node-content">
-              <h4>Broader Market Expansion</h4>
-              <p>Scale business footprints systematically beyond Kerala, extending verified core operating models into adjacent southern state territories while maintaining precise quality parameters.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="section-title">Core Values</h2>
-          <p class="section-subtitle">The foundational rules governing our corporate actions daily.</p>
-        </div>
-        <div class="features-grid-3">
-          <div class="feature-box">
-            <h3>Precision</h3>
-            <p>Measured market expansion systematically guided by precise regional healthcare requirements rather than speculative placements.</p>
-          </div>
-          <div class="feature-box">
-            <h3>Reliability</h3>
-            <p>Providing steady and predictable distribution, inventory availability, and technical document pipelines for wholesale stockists.</p>
-          </div>
-          <div class="feature-box">
-            <h3>Compliance</h3>
-            <p>Absolute, non-negotiable adherence to global chemical standards, statutory disclosures, and medical protocol constraints.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ====================================================
-       PAGE 3 — PRODUCTS PORTFOLIO VIEW
-  ==================================================== -->
-  <main class="app-page-view" id="view-products">
-    <section class="hero-block text-center">
-      <div class="container">
-        <h1>Product Portfolio Matrix</h1>
-        <p class="section-subtitle">A growing range of pharmaceutical formulations designed to support multiple therapeutic specialties through quality-focused products and dependable market availability.</p>
-        
-        <!-- Rotating Placeholder Showcase Matrix -->
-        <div style="max-width:600px; margin:32px auto 0 auto; background:var(--bg-primary); border:1px solid var(--border-color); padding:20px; border-radius:8px; box-shadow:var(--card-shadow);">
-          <svg viewBox="0 0 400 120" width="100%">
-            <rect width="100%" height="100%" fill="var(--bg-accent)" rx="6"/>
-            <circle cx="60" cy="60" r="35" fill="var(--cta-color)" opacity="0.2"/>
-            <rect x="130" y="35" width="220" height="16" fill="var(--text-primary)" rx="4"/>
-            <rect x="130" y="65" width="140" height="12" fill="var(--text-secondary)" rx="4"/>
-            <text x="60" y="65" text-anchor="middle" font-weight="700" fill="var(--text-primary)">📦</text>
-          </svg>
-          <p style="font-size:0.85rem; margin-top:10px; color:var(--text-secondary);">Interactive Clinical Batch Registry Showcase Template</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding">
-      <div class="container">
-        <h2 class="section-title">Featured Formulations</h2>
-        <p class="text-secondary">Our current active baseline products listing verified for distribution networks:</p>
-        
-        <div class="matrix-wrapper">
-          <table class="portfolio-table">
-            <thead>
-              <tr>
-                <th>Brand Name</th>
-                <th>Composition / Salt Strength</th>
-                <th>Dosage Form</th>
-                <th>Status / Visual Layout</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="brand-highlight">Oflokent-200</td>
-                <td><span class="salt-composition">Ofloxacin 200mg</span></td>
-                <td>Tablet Line</td>
-                <td>✅ Ready / Verified</td>
-              </tr>
-              <tr>
-                <td class="brand-highlight">Pipkon TZ</td>
-                <td><span class="salt-composition">Piperacillin 4g + Tazobactam 500mg</span></td>
-                <td>Injection Vial</td>
-                <td>✅ Critical Care Ready</td>
-              </tr>
-              <tr>
-                <td class="brand-highlight">EC Kent</td>
-                <td><span class="salt-composition">Vit E 400 IU + Vit C 150mg</span></td>
-                <td>Capsules</td>
-                <td>✅ Available</td>
-              </tr>
-              <tr>
-                <td class="brand-highlight">Farok 200</td>
-                <td><span class="salt-composition">Faropenem 200mg</span></td>
-                <td>Tablet Line</td>
-                <td>✅ Specialty Care Pack</td>
-              </tr>
-              <tr>
-                <td class="brand-highlight">Solikent 5</td>
-                <td><span class="salt-composition">Solifenacin 5mg</span></td>
-                <td>Tablet Line</td>
-                <td>✅ Available</td>
-              </tr>
-              <tr>
-                <td class="brand-highlight">Tamkent-0.4</td>
-                <td><span class="salt-composition">Tamsulosin Hydrochloride 0.4mg</span></td>
-                <td>Capsules</td>
-                <td>✅ Available</td>
-              </tr>
-              <tr>
-                <td class="brand-highlight">Tamkent-D</td>
-                <td><span class="salt-composition">Tamsulosin Hydrochloride 0.4mg + Dutasteride 0.5mg</span></td>
-                <td>Capsules</td>
-                <td>✅ Combined Therapy Ready</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding bg-accent-section">
-      <div class="container grid-2">
-        <div>
-          <h2 class="section-title">Expanding Therapeutic Coverage</h2>
-          <p class="text-secondary">Kentron Pharma currently maintains approximately 80 brands serving a broad spectrum of therapeutic specialties. Our configuration protocol emphasizes market demand analysis and consistent product delivery across state channels.</p>
-        </div>
-        <div style="text-center: right; background-color: var(--bg-primary); padding: 40px; border-radius: 8px; border: 1px solid var(--border-color); text-align: center;">
-          <h3 style="margin-bottom: 16px;">Looking for Product Availability?</h3>
-          <p class="text-secondary" style="margin-bottom: 24px; font-size: 0.95rem;">Connect with our regional supply operations desk to receive a physical prospectus sheet.</p>
-          <button class="btn-primary" onclick="switchAppView('contact')">Request Product Information</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ====================================================
-       PAGE 4 — CAREERS VIEW
-  ==================================================== -->
-  <main class="app-page-view" id="view-careers">
-    <section class="hero-block">
-      <div class="container text-center">
-        <h1>Join Kentron Pharma's Field Expansion Initiative</h1>
-        <p class="section-subtitle">Accelerating pharmaceutical infrastructure requires operational leadership in the field.</p>
-        
-        <div style="background-color: var(--cta-color); color: white; padding: 24px; border-radius: 6px; display: inline-block; max-width: 800px; text-align: left; margin-top: 16px;">
-          <h3 style="font-size: 1.3rem; margin-bottom: 8px;">⚡ Recruitment Campaign Active Across Kerala</h3>
-          <p style="font-size: 0.95rem; opacity: 0.95;">We are looking for self-motivated Medical Representatives (MR) to map and establish distribution presence across currently open, unrepresented territories.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding">
-      <div class="container">
-        <div class="career-card">
-          <div class="career-meta-grid">
-            <div class="meta-item"><label>Position Title</label><span>Medical Representative (MR)</span></div>
-            <div class="meta-item"><label>Department</label><span>Sales &amp; Field Operations</span></div>
-            <div class="meta-item"><label>Employment Type</label><span>Full-Time Professional</span></div>
-            <div class="meta-item"><label>Allocation</label><span>Multiple Kerala Districts</span></div>
-          </div>
-          
-          <div class="career-details">
-            <h4>Role Strategy &amp; Focal Points</h4>
-            <ul>
-              <li>Expand physician engagement parameters and product line familiarity within open circles.</li>
-              <li>Strengthen pharmacy retail stocking accounts and coordination with assigned stockists.</li>
-              <li>Provide consistent field data regarding product adoption and molecule updates back to HQ.</li>
-              <li>Manage territory target rollouts with absolute integrity and clinical precision.</li>
-            </ul>
-
-            <div class="notice-box">
-              <h4>⚠️ Strict Recruitment Limitations Notice</h4>
-              <p class="text-secondary" style="font-size: 0.95rem; margin: 0;">Kentron Pharma is currently recruiting exclusively for <strong>Medical Representatives (MR)</strong> to manage on-ground sales metrics. Management, back-office, and administrative positions are completely filled and are not accepting applications at this time.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center">
-          <h2 class="section-title">Application Blueprint</h2>
-          <p class="section-subtitle">Please parse your credentials securely matching the guidelines below:</p>
-        </div>
-
-        <div class="step-grid-3">
-          <div class="step-card">
-            <div class="step-num">01</div>
-            <h4>Resume Compilation</h4>
-            <p class="text-secondary">Format your updated CV detailing metrics, brand experiences, and territory knowledge blocks.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">02</div>
-            <h4>Target Choice</h4>
-            <p class="text-secondary">Explicitly cite your preferred operational working district or home station preference within Kerala.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">03</div>
-            <h4>Transmission Link</h4>
-            <p class="text-secondary">Forward document directly to: <strong>kentronpharma@gmail.com</strong> with subject line "Application – Medical Representative".</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ====================================================
-       PAGE 5 — CONTACT US VIEW
-  ==================================================== -->
-  <main class="app-page-view" id="view-contact">
-    <section class="hero-block text-center">
-      <div class="container">
-        <h1>Contact Kentron Pharma</h1>
-        <p class="section-subtitle">Whether you are a distributor, pharmacy, healthcare institution, or clinician, our team is available to assist with product, distribution, and partnership inquiries.</p>
-      </div>
-    </section>
-
-    <section class="section-padding">
-      <div class="container contact-split">
-        <!-- LEFT COLUMN: CORPORATE CONTACT NODES -->
-        <div>
-          <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: 24px;">Corporate Headquarters</h2>
-          
-          <div class="info-block-item">
-            <h4>Registered Office Address</h4>
-            <p>Kentron Laboratories Pvt. Ltd.<br>14/647 B Sunder Nagar,<br>Chitrapuzha Vayanasala Road,<br>Irimpanam P.O., Kochi – 682309<br>Kerala, India</p>
-          </div>
-
-          <div class="info-block-item">
-            <h4>Direct Communication Channels</h4>
-            <p style="margin-bottom: 6px;">📞 Phone: <a href="tel:+916282525936" style="color: var(--cta-color); font-weight:700;">+91 6282 525936</a></p>
-            <p>✉️ Corporate Email: <a href="mailto:kentronpharma@gmail.com" style="color: var(--cta-color); font-weight:700;">kentronpharma@gmail.com</a></p>
-          </div>
-
-          <div class="credentials-card">
-            <h4>Statutory Credentials &amp; Certifications</h4>
-            <div class="cred-row">
-              <label>GSTIN Profile Identification</label>
-              <span>32ABCFK9358G1Z8</span>
-            </div>
-            <div class="cred-row">
-              <label>FSSAI Food Safety Licence</label>
-              <span>11325007000404</span>
-            </div>
-          </div>
-
-          <div style="margin-top: 32px;">
-            <h4 style="font-size:0.85rem; text-transform:uppercase; color:var(--text-secondary); letter-spacing:1px; margin-bottom:12px;">Valid Business Inquiries Filtered</h4>
-            <ul class="enquiry-list">
-              <li>Distribution &amp; Stockist Partnerships</li>
-              <li>Wholesale Hospital Procurement contracts</li>
-              <li>Pharmacy Supply Networks setups</li>
-              <li>Institutional Healthcare Requirements</li>
-              <li>Product Availability Requests</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- RIGHT COLUMN: INTENT FORM PORTAL -->
-        <div class="inquiry-form-wrapper">
-          <h3>Connect With Our Business Team</h3>
-          <form id="corporateEnquiryForm" onsubmit="handleFormSubmission(event)">
-            <div class="form-group">
-              <label for="fullName">Full Name *</label>
-              <input type="text" id="fullName" class="form-control" required placeholder="Dr. / Mr. / Ms. Name">
-            </div>
-            <div class="form-group">
-              <label for="orgName">Organization / Clinic / Pharmacy Name *</label>
-              <input type="text" id="orgName" class="form-control" required placeholder="Enter entity trade name">
-            </div>
-            <div class="form-group">
-              <label for="businessType">Business Segment Type *</label>
-              <select id="businessType" class="form-control" required>
-                <option value="">-- Choose Segment --</option>
-                <option value="distributor">Wholesale Distributor</option>
-                <option value="pharmacy">Pharmacy Outlet</option>
-                <option value="clinician">Clinician / Doctor</option>
-                <option value="hospital">Hospital Procurement Office</option>
-                <option value="other">Other Healthcare Partner</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="mobileNo">Mobile Contact Number *</label>
-              <input type="tel" id="mobileNo" class="form-control" required placeholder="+91 00000 00000">
-            </div>
-            <div class="form-group">
-              <label for="emailAddr">Email Address *</label>
-              <input type="email" id="emailAddr" class="form-control" required placeholder="name@domain.com">
-            </div>
-            <div class="form-group">
-              <label for="districtLoc">District / Location *</label>
-              <input type="text" id="districtLoc" class="form-control" required placeholder="e.g. Ernakulam, Palakkad">
-            </div>
-            <div class="form-group">
-              <label for="inquirySubject">Subject Header *</label>
-              <input type="text" id="inquirySubject" class="form-control" required placeholder="Brief message topic">
-            </div>
-            <div class="form-group">
-              <label for="inquiryText">Inquiry Details &amp; Batch Requirements *</label>
-              <textarea id="inquiryText" class="form-control" required placeholder="Describe your requirement explicitly here..."></textarea>
+    <header>
+        <div class="container header-container">
+            <div class="logo-area" onclick="switchTab('home')">
+                <img src="images/logo_text.png" alt="Kentron Logo" class="logo-img">
+                <span class="logo-text">Kentron Pharma</span>
             </div>
             
-            <button type="submit" class="btn-primary" style="width: 100%;">Submit Inquiry Securely</button>
-            <p class="form-microcopy">A business representative from Kentron Pharma will review your inquiry parameters and respond through the communication channels provided above.</p>
-          </form>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeBtn" aria-label="Toggle structural contrast system mode" onclick="toggleThemeSystem()">
+                    <svg id="sunIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.22" x2="5.64" y2="17.78"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+
+                <button class="hamburger" id="hamburgerMenuBtn" aria-label="Toggle navigational system panel overlay" onclick="toggleNavigationMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
+    </header>
 
-  <!-- ====================================================
-       GLOBAL PERSISTENT CORPORATE FOOTER BLOCK
-  ==================================================== -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <h3>Kentron Laboratories Pvt. Ltd.</h3>
-        <p style="margin-bottom: 12px;">Established since 2025. Reliable distribution and brand network catering to multiple therapeutic specialties across South India channels.</p>
-        <p><strong>Scale:</strong> Approx. 80 Brands Across Multiple Therapeutic Specialties.</p>
-      </div>
-      <div>
-        <h4 class="footer-heading">Statutory Disclosure</h4>
-        <ul style="font-family: monospace; font-size: 0.85rem; display: flex; flex-direction: column; gap: 6px;">
-          <li>GSTIN: 32ABCFK9358G1Z8</li>
-          <li>FSSAI: 11325007000404</li>
+    <nav class="nav-overlay" id="navOverlayPanel">
+        <ul class="nav-menu">
+            <li class="nav-item"><a class="nav-link active-tab" data-target="home" onclick="handleNavigationTap(this)">Home</a></li>
+            <li class="nav-item"><a class="nav-link" data-target="about" onclick="handleNavigationTap(this)">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" data-target="vision" onclick="handleNavigationTap(this)">Vision & Values</a></li>
+            <li class="nav-item"><a class="nav-link" data-target="products" onclick="handleNavigationTap(this)">Products Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" data-target="careers" onclick="handleNavigationTap(this)">Careers</a></li>
+            <li class="nav-item"><a class="nav-link" data-target="contact" onclick="handleNavigationTap(this)">Contact Us</a></li>
         </ul>
-      </div>
-      <div>
-        <h4 class="footer-heading">Contact Us:</h4>
-        <ul class="footer-links">
-          <li>📍 14/647 B Sunder Nagar, Chitrapuzha Vayanasala Road, Irimpanam PO, Kochi – 682309</li>
-          <li style="margin-top:10px;">📞 <a href="tel:+916282525936">+91 6282 525936</a></li>
-          <li>✉️ <a href="mailto:kentronpharma@gmail.com">kentronpharma@gmail.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>&copy; 2026 Kentron Laboratories Pvt. Ltd. All rights reserved.</p>
-    </div>
-  </footer>
+    </nav>
 
-  <!-- ====================================================
-       INTERFACE LOGIC APPLICATION CORE SCRIPT
-  ==================================================== -->
-  <script>
-    /* ----------------------------------------------------
-       VIEW ROUTING CONTROLLER
-    ---------------------------------------------------- */
-    function switchAppView(targetViewId) {
-      // Find all functional page views and remove activation
-      const pages = document.querySelectorAll('.app-page-view');
-      pages.forEach(page => page.classList.remove('active-view'));
+    <main>
+        
+        <section id="home-page" class="page-view active">
+            <div class="container">
+                <div class="hero-section">
+                    <div class="hero-text">
+                        <h1>Pioneering Bio-Tech Pharmaceutical Innovation</h1>
+                        <p>Kentron Pharma is redefining therapeutic standards across global sectors. Established in 2025, we design, refine, and deploy mission-critical medical formulations engineered for maximum clinical fidelity and biological compliance.</p>
+                        <button class="btn-primary" onclick="switchTab('products')">Explore Portfolio Matrix</button>
+                    </div>
+                    <div class="hero-image-slot">
+                        <img src="images/building.jpg" alt="Kentron Pharma Facility" class="responsive-img">
+                    </div>
+                </div>
+                
+                <div class="highlights-strip">
+                    <div class="stat-card">
+                        <div class="stat-number">2025</div>
+                        <p style="color: var(--text-muted); font-weight: 500;">Inception and Operational Deployment Year</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">~80</div>
+                        <p style="color: var(--text-muted); font-weight: 500;">High-Tier Active Brands in Production</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <p style="color: var(--text-muted); font-weight: 500;">Certified Quality Compliance Workflow</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      // Isolate current active element target container and render
-      const activeTarget = document.getElementById('view-' + targetViewId);
-      if (activeTarget) {
-        activeTarget.classList.add('active-view');
-      }
+        <section id="about-page" class="page-view">
+            <div class="container">
+                <h2 class="section-title">About Kentron Pharma</h2>
+                <div class="hero-section" style="margin-bottom: 0;">
+                    <div class="hero-image-slot">
+                        <img src="images/building.jpg" alt="Kentron Pharma Facility Headquarters" class="responsive-img">
+                    </div>
+                    <div class="hero-text">
+                        <h3 style="margin-bottom: 16px; font-size: 1.75rem;">Setting Global Benchmarks In Care</h3>
+                        <p style="margin-bottom: 16px;">Founded systematically in the year 2025, Kentron Pharma has rapidly scaled up operations to manage a multi-tiered therapeutic framework encompassing approximately 80 elite brands across multiple complex clinical specialties.</p>
+                        <p>Our core capabilities focus around state-of-the-art chemical synthesis and formulation reliability. Each delivery mechanism adheres strictly to authorized global compliance controls, making us trusted strategic partners to clinics, healthcare frameworks, and pharmacies worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      // Update structural header tab highlight states
-      const menuItems = document.querySelectorAll('.nav-item');
-      menuItems.forEach(item => item.classList.remove('active'));
+        <section id="vision-page" class="page-view">
+            <div class="container">
+                <h2 class="section-title">Our Strategic Architecture</h2>
+                <p style="text-align: center; max-width: 700px; margin: -20px auto 45px; color: var(--text-muted);">The core design variables guiding the therapeutic research and operational workflows of Kentron Pharma.</p>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon-box">🎯</div>
+                        <h3>Precision</h3>
+                        <p>Calculated structural accuracy engineered at microscopic tiers to guarantee ultimate baseline efficacy.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon-box">🛡️</div>
+                        <h3>Reliability</h3>
+                        <p>Unyielding production consistency ensuring active pharmaceutical components match expectations every time.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon-box">⚖️</div>
+                        <h3>Compliance</h3>
+                        <p>Total institutional alignment with global pharmacopeia standards and statutory criteria frameworks.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon-box">🚀</div>
+                        <h3>Progress</h3>
+                        <p>Unending dedication to ongoing research and development patterns across changing healthcare needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      const activeTab = document.getElementById('tab-' + targetViewId);
-      if (activeTab) {
-        activeTab.classList.add('active');
-      }
+        <section id="products-page" class="page-view">
+            <div class="container">
+                <h2 class="section-title">High-Fidelity Products Portfolio</h2>
+                <p style="text-align: center; max-width: 700px; margin: -20px auto 45px; color: var(--text-muted);">Explore our premium, certified medical formulations. Clean, individual card layout presentation mappings.</p>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="images/product_01.jpeg" alt="Oflokent-200 Pack Packaging" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Oflokent-200</h3>
+                            <span class="product-generic">Ofloxacin 200mg</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="images/product_02.jpeg" alt="Pipkon TZ Pack Packaging" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Pipkon TZ</h3>
+                            <span class="product-generic">Piperacillin 4g + Tazobactam 500mg</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="images/product_03.jpeg" alt="EC Kent Pack Packaging" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">EC Kent</h3>
+                            <span class="product-generic">Vit E 400iu + Vit C 150mg</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="images/product_04.jpeg" alt="Farok 200 Pack Packaging" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Farok 200</h3>
+                            <span class="product-generic">Faropenem 200mg</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="images/product_05.jpeg" alt="Solikent 5 Pack Packaging" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Solikent 5</h3>
+                            <span class="product-generic">Solifenacin 5mg</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="images/product_06.jpeg" alt="Tamkent-0.4 Pack Packaging" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Tamkent-0.4</h3>
+                            <span class="product-generic">Tamsulosin Hydrochloride 0.4mg</span>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="images/product_07.jpeg" alt="Tamkent-D Pack Packaging" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Tamkent-D</h3>
+                            <span class="product-generic">Tamsulosin Hydrochloride 0.4mg + Dutasteride 0.5mg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      // Automatically collapse navigation layer if working on small screen viewports
-      document.getElementById('navigationMenu').classList.remove('mobile-open');
+        <section id="careers-page" class="page-view">
+            <div class="container">
+                <h2 class="section-title">Field Force Recruitment</h2>
+                
+                <div class="careers-wrapper">
+                    <div class="careers-banner">
+                        <span class="badge-hiring">Active Field Assignment</span>
+                        <h3 style="font-size: 1.85rem; margin-bottom: 8px;">Medical Representatives (MR)</h3>
+                        <p style="color: var(--text-muted);">Location Mapping: Territory expansion campaigns across Kerala State divisions.</p>
+                    </div>
+                    
+                    <div class="careers-body">
+                        <div class="role-notice-box">
+                            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Operational Staffing Update:</strong>
+                            <p style="font-size: 0.95rem; color: var(--text-muted);">Please note that all core internal corporate, institutional management, and administrative support roles are completely full at this present juncture.</p>
+                        </div>
+                        
+                        <h4 style="margin-bottom: 12px; font-size: 1.2rem;">Primary Target Mandate:</h4>
+                        <p style="margin-bottom: 20px; color: var(--text-muted);">Selected deployment specialists will take charge of regional logistics networks, territory growth, brand management metrics, and direct point-to-point interface cycles with medical practitioners, distribution stakeholders, and institutional pharmacies.</p>
+                        
+                        <div class="instruction-sequence">
+                            <p style="font-weight: 600;">To initiate an official evaluation sequence, dispatch your professional resume profile to:</p>
+                            <a href="mailto:kentronpharma@gmail.com?subject=Application%20%E2%80%93%20Medical%20Representative" class="email-anchor">kentronpharma@gmail.com</a>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 12px; font-weight: 700;">Required Email Subject Syntax: Application – Medical Representative</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      // Scroll view smoothly back to coordinate top zero
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        <section id="contact-page" class="page-view">
+            <div class="container">
+                <h2 class="section-title">Connect Globally With Us</h2>
+                
+                <div class="contact-split-grid">
+                    <div class="form-card">
+                        <h3 style="margin-bottom: 24px; font-size: 1.4rem;">Interactive Inquiry System</h3>
+                        <form id="contactForm" onsubmit="event.preventDefault(); alert('Transmission sequence initialized. Data packet routed to Kentron core infrastructure.');">
+                            <div class="form-group">
+                                <label class="form-label">Full Profile / Entity Name</label>
+                                <input type="text" class="form-control" placeholder="e.g. Dr. Arthur Kent" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Business Vector Classification</label>
+                                <select class="form-control" required style="appearance: none;-webkit-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=%22%231A2B4C%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/></svg>'); background-repeat: no-repeat; background-position: right 12px center;">
+                                    <option value="" disabled selected hidden>Choose Sector Type</option>
+                                    <option value="wholesale">Wholesale Distributor</option>
+                                    <option value="pharmacy">Pharmacy Outlet</option>
+                                    <option value="clinician">Independent Clinician</option>
+                                    <option value="hospital">Institutional Care / Hospital</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Telephone Contact Coordinate</label>
+                                <input type="tel" class="form-control" placeholder="e.g. +91 0000 000000" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Operational Territory Base (Location)</label>
+                                <input type="text" class="form-control" placeholder="e.g. Kochi, Kerala" required>
+                            </div>
+                            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">Transmit Secure Inquiry</button>
+                        </form>
+                    </div>
 
-    /* ----------------------------------------------------
-       THEME MODE STATE CONTROLLER
-    ---------------------------------------------------- */
-    function toggleThemeEngine() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      if (currentTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('kentron-theme', 'light');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('kentron-theme', 'dark');
-      }
-    }
+                    <div class="institutional-card">
+                        <img src="images/building.jpg" alt="Kentron Location Reference Headquarters" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div class="institutional-body">
+                            <div class="data-point">
+                                <div class="data-label">Corporate Hub Address</div>
+                                <div class="data-value" style="font-weight: 500; font-size: 0.95rem; line-height: 1.4;">14/647 B Sunder Nagar, Chitrapuzha Vayanasala Road, Irimpanam PO, Kochi – 682309</div>
+                            </div>
+                            <div class="data-point">
+                                <div class="data-label">Primary Communications Core</div>
+                                <div class="data-value" style="color: var(--accent-orange);">+91 6282 525936</div>
+                            </div>
+                            <div class="data-point">
+                                <div class="data-label">Infrastructural System Email</div>
+                                <div class="data-value"><a href="mailto:kentronpharma@gmail.com">kentronpharma@gmail.com</a></div>
+                            </div>
+                            <div class="data-point" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                <div>
+                                    <div class="data-label">GSTIN Registry</div>
+                                    <div class="data-value" style="font-size: 0.85rem;">32ABCFK9358G1Z8</div>
+                                </div>
+                                <div>
+                                    <div class="data-label">FSSAI Registry</div>
+                                    <div class="data-value" style="font-size: 0.85rem;">11325007000404</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    // Read stored cache state flags on structural loading loops
-    (function initializationThemeChecks() {
-      const savedTheme = localStorage.getItem('kentron-theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    })();
+    </main>
 
-    /* ----------------------------------------------------
-       MOBILE VIEW RESPONSIVE ACCORDION
-    ---------------------------------------------------- */
-    function toggleMobileMenu() {
-      const menu = document.getElementById('navigationMenu');
-      menu.classList.toggle('mobile-open');
-    }
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-grid-item">
+                    <div class="footer-heading">Kentron Pharma</div>
+                    <p style="font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px;">Providing advanced clinical support solutions since 2025. Managing a comprehensive logistical system across an approximately 80-brand portfolio footprint catering to multiple healthcare paths.</p>
+                    <p style="font-size: 0.8rem; font-weight: 600;">GSTIN: 32ABCFK9358G1Z8 | FSSAI: 11325007000404</p>
+                </div>
+                <div class="footer-grid-item">
+                    <div class="footer-heading">Navigation Matrix</div>
+                    <ul class="footer-links-list">
+                        <li><a onclick="switchTab('home')">Home Hub</a></li>
+                        <li><a onclick="switchTab('about')">About Overview</a></li>
+                        <li><a onclick="switchTab('vision')">Vision & Design</a></li>
+                        <li><a onclick="switchTab('products')">Product Matrix</a></li>
+                        <li><a onclick="switchTab('careers')">Field Openings</a></li>
+                        <li><a onclick="switchTab('contact')">Connect Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid-item">
+                    <div class="footer-heading">Central Coordinates</div>
+                    <p style="font-size: 0.85rem; line-height: 1.4; margin-bottom: 8px;">14/647 B Sunder Nagar, Chitrapuzha Vayanasala Road, Irimpanam PO, Kochi – 682309</p>
+                    <p style="font-size: 0.85rem;"><strong>Phone:</strong> +91 6282 525936</p>
+                    <p style="font-size: 0.85rem;"><strong>Email:</strong> kentronpharma@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kentron Pharma. All Operational Systems Safeguarded.</p>
+            </div>
+        </div>
+    </footer>
 
-    /* ----------------------------------------------------
-       FORM PORTAL APPLICATION DISPATCHER
-    ---------------------------------------------------- */
-    function handleFormSubmission(event) {
-      event.preventDefault();
-      
-      // Capture and validate form fields
-      const clientName = document.getElementById('fullName').value;
-      const organization = document.getElementById('orgName').value;
-      const contactNo = document.getElementById('mobileNo').value;
-      
-      alert(`Thank you, ${clientName} from ${organization}. Your operational query parameter has been processed safely. Our regional field office will reach you at ${contactNo} inside 24 business hours.`);
-      
-      document.getElementById('corporateEnquiryForm').reset();
-    }
-  </script>
+    <script>
+        /* --- STATE CORE CONTROLS --- */
+        const bodyElement = document.body;
+        const hamburgerBtn = document.getElementById('hamburgerMenuBtn');
+        const overlayPanel = document.getElementById('navOverlayPanel');
+        const sunToggleIcon = document.getElementById('sunIcon');
 
+        /* --- LIGHT / DARK MODE TOGGLE LOGIC --- */
+        function toggleThemeSystem() {
+            const currentThemeState = bodyElement.getAttribute('data-theme');
+            if(currentThemeState === 'light') {
+                bodyElement.setAttribute('data-theme', 'dark');
+                // Adjusting embedded SVG icon graphics dynamically
+                sunToggleIcon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
+            } else {
+                bodyElement.setAttribute('data-theme', 'light');
+                sunToggleIcon.innerHTML = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.22" x2="5.64" y2="17.78"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
+            }
+        }
+
+        /* --- HAMBURGER OVERLAY OVERRIDE LOGIC --- */
+        function toggleNavigationMenu() {
+            hamburgerBtn.classList.toggle('active');
+            overlayPanel.classList.toggle('active');
+            
+            // Prevent background tracking scroll loops when menu window is open
+            if(overlayPanel.classList.contains('active')) {
+                bodyElement.style.overflow = 'hidden';
+            } else {
+                bodyElement.style.overflow = '';
+            }
+        }
+
+        /* --- MULTI-TAB EMBEDDED ROUTING SYSTEM --- */
+        function switchTab(targetPageId) {
+            // Disengage all functional views
+            const completeViews = document.querySelectorAll('.page-view');
+            completeViews.forEach(view => {
+                view.classList.remove('active');
+            });
+
+            // Target unique viewport mapping
+            const activeTargetElement = document.getElementById(`${targetPageId}-page`);
+            if(activeTargetElement) {
+                activeTargetElement.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Re-sync highlighting indicators inside the structural menus
+            const overlayNavLinks = document.querySelectorAll('.nav-link');
+            overlayNavLinks.forEach(link => {
+                if(link.getAttribute('data-target') === targetPageId) {
+                    link.classList.add('active-tab');
+                } else {
+                    link.classList.remove('active-tab');
+                }
+            });
+        }
+
+        function handleNavigationTap(elementNode) {
+            const targetViewSelection = elementNode.getAttribute('data-target');
+            switchTab(targetViewSelection);
+            toggleNavigationMenu(); // Reset menu overlay status flags
+        }
+    </script>
 </body>
 </html>
